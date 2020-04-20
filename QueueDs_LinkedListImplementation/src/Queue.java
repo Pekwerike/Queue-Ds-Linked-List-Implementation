@@ -1,6 +1,6 @@
 import org.jetbrains.annotations.Contract;
 
-public class Queue {
+public class Queue <Item> {
     Node first, last;
 
     /**Function to check if the linked list is empty**/
@@ -9,7 +9,7 @@ public class Queue {
         return (first == null);
     }
 
-    public void enqueue(String inputData){
+    public void enqueue(Item inputData){
         /**Hold a reference to the last node**/
         Node oldLast = last;
 
@@ -24,19 +24,19 @@ public class Queue {
         else oldLast.next = last;
     }
 
-    public String dequeue(){
+    public Item dequeue(){
         /**If linked list is not empty, dequeue**/
         if(!isEmpty()){
-            String itemToOutput = first.item;
+            Item itemToOutput = first.item;
             first = first.next;
             return itemToOutput;
         }
-        else return "Empty Queue";
+        else return null;
     }
 
     /**Data class for the nodes in the list**/
     private class Node{
-        String item;
+        Item item;
         Node next;
     }
 }
